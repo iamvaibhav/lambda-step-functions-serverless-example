@@ -2,17 +2,14 @@ service: serverlessStepFunctions
 
 plugins:
   - serverless-step-functions
-  - serverless-pseudo-parameters
 
-frameworkVersion: ">=1.1.0 <2.0.0"
+frameworkVersion: '3'
 
 provider:
   name: aws
-  runtime: nodejs6.10
-  profile: ${file(./aws_params.yml):profile}
+  runtime: nodejs14.x
   stage: ${file(./aws_params.yml):stage}
   region: ${file(./aws_params.yml):region}
-  deploymentBucket: ${file(./aws_params.yml):DEPLOYMENT_S3_BUCKET}
 
   iamRoleStatements:
     - Effect: "Allow"
